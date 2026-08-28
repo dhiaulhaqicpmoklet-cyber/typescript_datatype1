@@ -21,7 +21,7 @@ If you received this as a ZIP file, extract it. If it is in a Git repository:
 
 ```bash
 git clone <repository-url>
-cd learn-typescript
+cd l-typescript
 ```
 
 ### 2. Install dependencies
