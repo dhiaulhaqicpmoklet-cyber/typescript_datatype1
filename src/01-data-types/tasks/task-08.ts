@@ -21,3 +21,21 @@
  * 2. Store the temperature data in a single collection.
  * 3. Display the temperature data using console.log.
  */
+
+type sistem ={
+    time:string
+    temp:number
+}
+
+const sistemm:sistem[]=[
+    {time:"08:00", temp:24.5},
+    {time:"09:00", temp:25.1},
+    {time:"10:00", temp:26.8},
+    {time:"11:00", temp:28.4},
+    {time:"12:00", temp:30.2},
+    {time:"13:00", temp:31.1},
+    {time:"14:00", temp:30.7},
+    {time:"15:00", temp:29.3},
+]
+
+console.log("sistemm", sistemm)
