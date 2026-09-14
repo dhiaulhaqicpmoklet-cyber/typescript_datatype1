@@ -30,3 +30,19 @@
  * 2. Implement both screening stages.
  * 3. Display the loan decision.
  */
+
+const applicant:string="Andi Wijaya"
+const monthly:number=10000000
+const credit:number=725
+const debt:number=2500000
+const permanent:boolean=true
+
+if(monthly>=8000000 && credit>=700){
+    if(debt<=monthly*30/100 && permanent===true){
+        console.log("Loan Approved")
+    }else{
+        console.log("Manual Review")
+    }
+}else{
+    console.log("Loan Rejected")
+}

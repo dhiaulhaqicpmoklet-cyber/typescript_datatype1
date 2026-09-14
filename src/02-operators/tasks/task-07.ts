@@ -21,3 +21,27 @@
  * - Final payment
  * - Whether the guest is eligible for free breakfast
  */
+
+
+const price:number=650000
+const nights:number=4
+const service:Number=120000
+const tax:number= 11/100
+const vIP:boolean=true
+
+const subtotal:number=price*nights
+const discount:number=subtotal-(subtotal*12/100)
+const ax:number= (discount*tax)+discount
+const final:number= ax + 120000
+
+console.log(price)
+console.log(nights)
+console.log(service)
+console.log("11%")
+console.log(vIP)
+console.log(final)
+if(nights>=3){
+    console.log("free breakfast")
+}else{
+    console.log("no free breakfast")
+}

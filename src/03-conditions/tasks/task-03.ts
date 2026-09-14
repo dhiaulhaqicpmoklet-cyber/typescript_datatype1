@@ -18,3 +18,14 @@
  * 2. Implement the business rules using if...else if...else.
  * 3. Display the recommended package.
  */
+
+const nama:string="Raka Saputra"
+const usage:number=124
+
+if(usage < 50){
+    console.log("basic")
+}else if(usage <= 150){
+    console.log("standart")
+}else{
+    console.log("premium")
+}
