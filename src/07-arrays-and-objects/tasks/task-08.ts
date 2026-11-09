@@ -32,3 +32,18 @@ const employees = [
         ],
     },
 ];
+
+const employeeAverages = employees.map(employee => ({
+    name: employee.name,
+    averageScore: employee.projects.reduce((total, project) => total + project.score, 0) / employee.projects.length
+}));
+
+const highPerformers = employeeAverages.filter(employee => employee.averageScore > 85);
+
+const employeesWithLowScores = employees.filter(employee =>
+    employee.projects.some(project => project.score < 80)
+);
+
+console.log(`Employee Average Scores: ${JSON.stringify(employeeAverages, null, 2)}`);
+console.log(`Employees Above 85: ${JSON.stringify(highPerformers, null, 2)}`);
+console.log(`Employees With Project Scores Below 80: ${JSON.stringify(employeesWithLowScores, null, 2)}`);

@@ -2,6 +2,16 @@
  * A programming competition stores participants' scores in the following array.
  * 
  * 
+ * 
+ * const score = [
+ *  98, 76, 85, 62, 91,
+ *  73, 88, 59, 100, 81,
+ *  67, 79, 94, 83, 71,
+ *  96, 65, 87, 74, 90
+ *  ];
+ * 
+ * 
+ * 
  * Competition Rules
  * Gold Medal : score ≥ 95
  * Silver Medal : score 85–94
@@ -18,9 +28,41 @@
  * - Average competition score
  */
 
-const scores = [
-    98, 76, 85, 62, 91,
-    73, 88, 59, 100, 81,
-    67, 79, 94, 83, 71,
-    96, 65, 87, 74, 90
-];
+
+
+const score = [
+ 98, 76, 85, 62, 91,
+ 73, 88, 59, 100, 81,
+ 67, 79, 94, 83, 71,
+ 96, 65, 87, 74, 90
+ ];
+
+let goldMedal:number = 0;
+let silverMedal:number = 0;
+let bronzeMedal:number = 0;
+let noMedal:number = 0;
+let toalScore:number = 0;
+
+for (let i = 0; i < score.length; i++) {
+  const currentScore:number = score[i];
+
+  toalScore += currentScore;
+
+  if (currentScore >= 95) {
+    goldMedal++;
+  } else if (currentScore >= 85) {
+    silverMedal++;
+  } else if (currentScore >= 75) {
+    bronzeMedal++;
+  } else {
+    noMedal++;
+  }
+}
+
+const avergeScore: number = toalScore / score.length;
+
+console.log("Gold Medal Winners:", goldMedal);
+console.log("Silver Medal Winners:", silverMedal);
+console.log("Bronze Medal Winners:", bronzeMedal);
+console.log("Students Without Medals:", noMedal);
+console.log("Average Competition Score:", avergeScore);

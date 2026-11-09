@@ -24,3 +24,22 @@ const borrowings = [
     { student: "Eka", bookId: 1, days: 4 },
     { student: "Andi", bookId: 3, days: 8 },
 ];
+
+const andiBorrowings = borrowings.filter(b => b.student === "Andi");
+const borrowingDetails = borrowings.map(b => ({
+    ...b,
+    book: books.find(book => book.id === b.bookId)
+}));
+const programmingBorrowers = borrowingDetails
+    .filter(b => b.book?.category === "Programming")
+    .map(b => b.student);
+const totalBorrowings = borrowings.length;
+const averageDuration = borrowings.reduce((total, b) => total + b.days, 0) / borrowings.length;
+const longBorrowings = borrowings.filter(b => b.days > 7);
+
+console.log(`Andi's Borrowings: ${JSON.stringify(andiBorrowings, null, 2)}`);
+console.log(`Borrowing Details: ${JSON.stringify(borrowingDetails, null, 2)}`);
+console.log(`Programming Borrowers: ${programmingBorrowers.join(", ")}`);
+console.log(`Total Borrowings: ${totalBorrowings}`);
+console.log(`Average Duration: ${averageDuration.toFixed(2)} days`);
+console.log(`Borrowings More Than 7 Days: ${JSON.stringify(longBorrowings, null, 2)}`);

@@ -63,3 +63,125 @@ const patients = [
         bill: 350000
     }
 ];
+
+function getTotalPatients(): number {
+    return patients.length;
+}
+
+function getAdmittedCount(): number {
+    let count = 0;
+
+    for (const patient of patients) {
+        if (patient.admitted) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+function getDischargedCount(): number {
+    let count = 0;
+
+    for (const patient of patients) {
+        if (!patient.admitted) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+function getDepartmentCount(department: string): number {
+    let count = 0;
+
+    for (const patient of patients) {
+        if (patient.department === department) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+function getHighestBill(): number {
+    let highest = patients[0].bill;
+
+    for (const patient of patients) {
+        if (patient.bill > highest) {
+            highest = patient.bill;
+        }
+    }
+
+    return highest;
+}
+
+function getLowestBill(): number {
+    let lowest = patients[0].bill;
+
+    for (const patient of patients) {
+        if (patient.bill < lowest) {
+            lowest = patient.bill;
+        }
+    }
+
+    return lowest;
+}
+
+function getAverageBill(): number {
+    let total = 0;
+
+    for (const patient of patients) {
+        total += patient.bill;
+    }
+
+    return total / patients.length;
+}
+
+function getTotalRevenue(): number {
+    let total = 0;
+
+    for (const patient of patients) {
+        total += patient.bill;
+    }
+
+    return total;
+}
+
+function getAdmittedNames(): string[] {
+    const names: string[] = [];
+
+    for (const patient of patients) {
+        if (patient.admitted) {
+            names.push(patient.name);
+        }
+    }
+
+    return names;
+}
+
+function formatRupiah(amount: number): string {
+    return "Rp" + amount.toLocaleString("id-ID");
+}
+
+function printHospitalReport(): void {
+    console.log("Total Patients:", getTotalPatients());
+    console.log("Admitted Patients:", getAdmittedCount());
+    console.log("Discharged Patients:", getDischargedCount());
+
+    console.log("\n--- Patients by Department ---");
+    console.log("Pediatrics:", getDepartmentCount("Pediatrics"));
+    console.log("Cardiology:", getDepartmentCount("Cardiology"));
+    console.log("Orthopedics:", getDepartmentCount("Orthopedics"));
+
+    console.log("\n--- Hospital Bills ---");
+    console.log("Highest Bill:", formatRupiah(getHighestBill()));
+    console.log("Lowest Bill:", formatRupiah(getLowestBill()));
+    console.log("Average Bill:", formatRupiah(getAverageBill()));
+    console.log("Total Revenue:", formatRupiah(getTotalRevenue()));
+
+    console.log("\n--- Admitted Patient Names ---");
+    console.log(getAdmittedNames().join(", "));
+}
+
+printHospitalReport();

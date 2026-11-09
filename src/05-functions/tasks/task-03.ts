@@ -9,8 +9,8 @@
  * 3. Use a loop to calculate the total.
  * 4. Return the total price.
  * 5. Display the returned value.
- */
-
+ *
+ *
 const prices = [
     250000,
     180000,
@@ -18,3 +18,22 @@ const prices = [
     420000,
     125000
 ];
+
+*/
+const price:number[]=[
+    250000,
+    180000,
+    95000,
+    420000,
+    125000
+];
+
+function calculateTotalPrice(harga:number[]){
+    let total: number = 0;
+    for (let i = 0; i < harga.length; i++) {
+        total += harga[i];
+    }
+    console.log("Total purchase amount: Rp" + total);
+}
+
+calculateTotalPrice(price)

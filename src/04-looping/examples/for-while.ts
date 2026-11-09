@@ -47,3 +47,46 @@ for (let i = 1; i <= 10; i++) {
   if (i === 8) break; // stop at 8
   console.log(i);
 }
+
+console.log("1")
+for (let i = 0; i <= 4; i++){
+  for(let j = 0; j <= i; j++){
+    process.stdout.write("*");
+  }
+  process.stdout.write("\n")
+}
+
+console.log("2")
+for (let i = 4; i >= 0; i--){
+  for(let j = 0; j <= i; j++){
+    process.stdout.write("*");
+  }
+  process.stdout.write("\n")
+}
+
+console.log("3")
+for (let i = 0; i <= 4; i++){
+  for(let j = 0; j <= i; j++){
+    process.stdout.write("*");
+  }
+  process.stdout.write("\n")
+}
+for (let i = 3; i >= 0; i--){
+  for(let j = 0; j <= i; j++){
+    process.stdout.write("*");
+  }
+  process.stdout.write("\n")
+}
+
+console.log("4")
+for (let i = 0; i <= 4; i++){
+  for(let j = 0; j <= i; j++){
+    process.stdout.write("*");
+  }
+  process.stdout.write("\n")
+}
+// for (let i = 0; i <= 5; i++){
+//   for(let j = 0; j <= i; j++){
+//     console.log("*")
+//   }
+// }

@@ -35,3 +35,30 @@ const orders = [
         ],
     },
 ];
+
+const completedOrders = orders.filter(order => order.status === "completed");
+
+const orderTotals = completedOrders.map(order => ({
+    id: order.id,
+    customer: order.customer,
+    total: order.items.reduce((total, item) => total + item.price * item.quantity, 0)
+}));
+
+const highestSpender = orderTotals.reduce((highest, order) =>
+    order.total > highest.total ? order : highest
+);
+
+const totalRevenue = orderTotals.reduce((total, order) => total + order.total, 0);
+
+const purchasedProducts = [...new Set(
+    completedOrders.reduce(
+        (products, order) => products.concat(order.items.map(item => item.product)),
+        [] as string[]
+    )
+)];
+
+console.log(`Completed Orders: ${JSON.stringify(completedOrders, null, 2)}`);
+console.log(`Order Totals: ${JSON.stringify(orderTotals, null, 2)}`);
+console.log(`Customer Who Spent the Most: ${highestSpender.customer} (Rp${highestSpender.total.toLocaleString("id-ID")})`);
+console.log(`Total Revenue: Rp${totalRevenue.toLocaleString("id-ID")}`);
+console.log(`Purchased Products: ${purchasedProducts.join(", ")}`);

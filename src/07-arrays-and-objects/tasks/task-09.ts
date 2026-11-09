@@ -33,3 +33,18 @@ const posts = [
     likes: 300,
   },
 ];
+
+const typescriptPosts = posts.filter(post => post.hashtags.includes("typescript"));
+
+const nestjsPosts = posts.filter(post => post.hashtags.includes("nestjs"));
+
+const highestLikes = posts.reduce((highest, post) =>
+    post.likes > highest.likes ? post : highest
+);
+
+const totalLikes = posts.reduce((total, post) => total + post.likes, 0);
+
+console.log(`Posts Containing TypeScript: ${JSON.stringify(typescriptPosts, null, 2)}`);
+console.log(`Posts Containing NestJS: ${JSON.stringify(nestjsPosts, null, 2)}`);
+console.log(`Post With Highest Likes: ${highestLikes.author} (${highestLikes.likes} likes)`);
+console.log(`Total Likes: ${totalLikes}`);
